@@ -1,7 +1,7 @@
 # Game-Theory
+IIT2021066-Sreeram Angina
+
 It is a MERN Stack project where there are 2 types of Users One is Admin and a customer.
-
-
 
 Customer:
  A customer initially can sign up for the website where his password is encrypted using bcrypty and for user authantication I have used JWT Tokens. And Once when the user has signed Up he then is redirected to Login Page where he needs to Login with the emailId and PassWord he/she has provided.
@@ -10,9 +10,25 @@ Customer:
 Admin:
 Admin has all the above mentioned features with a extra feature of manipulating the bookings either removal or adding.
 
-Software Requirements:
 
+1)SETUP , RUN AND DEPLOYMENT:
+
+
+
+Software Requirements:
 A good laptop/PC with nodeJS installed in it is good enough to run this project.
 
+Install all the node modules required for the project using npm i which installs all the dependencies present inside the package.json file.
+For running the code use command npm run start/ npm start for both frontend and backend separatley
+I have deployed the project using Netlify for frontend and Render for deployment of backend
+
+2)Dependencies And Prerequisites:
+
+Node MOdules,MongoDB Atlas account for database,Knowledge of ReactJS.
+
+3)The Deployed links
+
 Here is the deployed Link Of the Project:
+frontend:https://bookmycourt.netlify.app/login
+backend:https://game-theory-gkrg.onrender.com
 
