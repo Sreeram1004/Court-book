@@ -3,13 +3,15 @@ import {useState ,useEffect, useContext}from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserContext from '../../Constants/UserContext';
+
 const Sports = () => {
+    
     const [sports,setSports]=useState([]);
     const navigate=useNavigate();
     const {setGame,center}=useContext(UserContext);
     console.log(center)
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/View?center=${center}`)
+        axios.get(`https://game-theory-gkrg.onrender.com/api/View?center=${center}`)
         .then((res)=>{
             // console.log(res.data[0].sports)
             setSports(res.data[0].sports)

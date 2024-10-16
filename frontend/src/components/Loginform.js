@@ -3,13 +3,12 @@ import './Signupform.css'
 import { Link, useNavigate,} from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios';
-import dotenv from 'dotenv';
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 </style>
 export default function Loginform() {
-    dotenv.config()
-;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
+    
     let navigate= useNavigate(); 
     const [Credentials, setCredentials] = useState({  email: "", password: "" })
     
@@ -17,7 +16,7 @@ export default function Loginform() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${REACT_APP_BACK_URL}/api/LoginUser`, { // Use HTTP if not configured for HTTPS
+            const response = await axios.post(`https://game-theory-gkrg.onrender.com/api/LoginUser`, { // Use HTTP if not configured for HTTPS
                 email: Credentials.email,
                 password: Credentials.password
             }, {

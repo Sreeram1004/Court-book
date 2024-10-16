@@ -3,17 +3,15 @@ import './Signupform.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import dotenv from 'dotenv';
 export default function Loginadmin() {
-    dotenv.config()
-;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
+  
     let navigate = useNavigate();
     const [Credentials, setCredentials] = useState({ email: "", password: "" });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${REACT_APP_BACK_URL}/api/Loginadmin`, {
+            const response = await axios.post(`https://game-theory-gkrg.onrender.com/api/Loginadmin`, {
                 email: Credentials.email,
                 password: Credentials.password
             }, {

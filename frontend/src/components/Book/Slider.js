@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "../../Constants/UserContext"; // Import UserContext to get center and sport
-import dotenv from 'dotenv'
 const BookingSchedule = ({ bookings, courts, timeslots, handleBooking }) => {
   return (
     <div className="grid grid-cols-7 gap-4 p-4 bg-gray-100">
@@ -43,8 +42,6 @@ const BookingSchedule = ({ bookings, courts, timeslots, handleBooking }) => {
 };
 
 const Slider = ({ selectedDate }) => {
-  dotenv.config()
-;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
   const [date, setDate] = useState(selectedDate || new Date()); // Set the initial date
   const [sports, setSports] = useState([]); // Store available sports
   const [courts, setCourts] = useState([]); // Store available courts for the selected sport
@@ -56,7 +53,7 @@ const Slider = ({ selectedDate }) => {
   useEffect(() => {
     if (center) {
       axios
-        .get(`${REACT_APP_BACK_URL}/api/View?center=${center}`)
+        .get(`https://game-theory-gkrg.onrender.com/api/View?center=${center}`)
         .then((res) => {
           const centerSports = res.data[0].sports;
           setSports(centerSports);
@@ -91,7 +88,7 @@ const Slider = ({ selectedDate }) => {
     });
 
     axios
-      .get(`${REACT_APP_BACK_URL}/api/Booked?center=${center}&sport=${selectedSport}&date=${date}`)
+      .get(`https://game-theory-gkrg.onrender.com/api/Booked?center=${center}&sport=${selectedSport}&date=${date}`)
       .then((res) => {
         const bookingsData = res.data.reduce((acc, booking) => {
           const courtNo = booking.courtNo;
@@ -123,7 +120,7 @@ const Slider = ({ selectedDate }) => {
   // Handle booking by sending the selected court and time to the backend
   const handleBooking = async (court, time) => {
     try {
-      const userProfileResponse = await axios.post(`${BACK_URL}/api/userprofile`, {
+      const userProfileResponse = await axios.post(`https://game-theory-gkrg.onrender.com/api/userprofile`, {
         email: localStorage.getItem("userEmail"),
       });
 
@@ -141,7 +138,7 @@ const Slider = ({ selectedDate }) => {
       };
 
       // Send booking data to the backend
-      await axios.post(`${REACT_APP_BACK_URL}/api/Book`, bookingData);
+      await axios.post(`https://game-theory-gkrg.onrender.com/api/Book`, bookingData);
 
       // Update the state to reflect the new booking
       setBookings((prev) => ({

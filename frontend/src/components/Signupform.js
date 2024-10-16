@@ -7,10 +7,9 @@ import axios from 'axios'
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 </style>
-import dotenv from 'dotenv'
+
 export default function Signupform() {
     const navigate=useNavigate();
-    dotenv.config()
 ;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
     
     const [Credentials, setCredentials] = useState({ name: "", email: "", contactNumber: "", password: "" })
@@ -19,7 +18,7 @@ export default function Signupform() {
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post(`${REACT_APP_BACK_URL}/api/CreateUser`, {
+        const response = await axios.post("https://game-theory-gkrg.onrender.com/api/CreateUser", {
             name: Credentials.name,
             email: Credentials.email,
             contactNumber: Credentials.contactNumber,

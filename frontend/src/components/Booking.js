@@ -3,15 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserContext from '../Constants/UserContext';
-import dotenv from 'dotenv'
+
 const Booking = ()=>{
-    dotenv.config()
-;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
+
     const [centers,setCenters]=useState([]);
     const navigate=useNavigate();
     const {setPlace,}=useContext(UserContext);
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/View`)
+        axios.get(`https://game-theory-gkrg.onrender.com/api/View`)
         .then((res)=>{setCenters(res.data)
             // console.log(centers)
         })

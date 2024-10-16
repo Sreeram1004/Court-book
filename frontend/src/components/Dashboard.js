@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import dotenv from 'dotenv';
+
 const Dashboard = () => {
-    dotenv.config()
-;    const REACT_APP_BACK_URL=process.env.REACT_APP_BACK_URL
+   
     const [bookings, setBookings] = useState([]);
     const [username, setUsername] = useState('');
 
@@ -12,7 +11,7 @@ const Dashboard = () => {
         // Fetch user profile to get the username
         const fetchUsername = async () => {
             try {
-                const userProfileResponse = await axios.post(`${REACT_APP_BACK_URL}/api/userprofile`, {
+                const userProfileResponse = await axios.post(`https://game-theory-gkrg.onrender.com/api/userprofile`, {
                     email: localStorage.getItem('userEmail'),
                 });
                 const userProfileData = userProfileResponse.data;
@@ -30,7 +29,7 @@ const Dashboard = () => {
             try {
                 const username = encodeURIComponent(user);
                 console.log(username)
-                const bookingsResponse = await axios.get(`${REACT_APP_BACK_URL}/api/Dash`, {
+                const bookingsResponse = await axios.get(`https://game-theory-gkrg.onrender.com/api/Dash`, {
                     params: { username }
                 });
                 console.log(bookingsResponse.data)
