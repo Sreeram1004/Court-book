@@ -1,5 +1,4 @@
-# Game-Theory
-IIT2021066-Sreeram Angina
+# Court BOOKING
 
 It is a MERN Stack project where there are 2 types of Users One is Admin and a customer.
 
