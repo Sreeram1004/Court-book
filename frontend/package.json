@@ -13,6 +13,7 @@
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "fetch": "^1.1.0",
+    "frontend": "file:",
     "heroicons": "^2.1.5",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
