@@ -28,6 +28,6 @@ Node MOdules,MongoDB Atlas account for database,Knowledge of ReactJS.
 3)The Deployed links
 
 Here is the deployed Link Of the Project:
-frontend:https://bookmycourt.netlify.app/login
+frontend:https://bookmycourt.netlify.app
 backend:https://game-theory-gkrg.onrender.com
 
